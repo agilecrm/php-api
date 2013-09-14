@@ -5,9 +5,9 @@ PHP Client to Access Agile Functionality
 
 # Intro
 
-1. Fill in the your ***agile API key*** and ***agile domain*** in the file **curlWrap.php**
+1. Fill in the your ***agile API key*** and ***agile domain*** in the file **curlwrap.php**
 
-2. Copy and paste the source of curlWrap.php in your php code.
+2. Copy and paste the source of curlwrap.php in your php code.
 
 3. You need to provide 3 parameters to the curlWrap function. They are **url**, **json data** and **action**.
 
@@ -119,4 +119,4 @@ curlWrap("score", $json, "GET");
 curlWrap("contact", $json, "DELETE");
 ```
 
-For example implementation of all available API refer to [testAgile.php](https://github.com/agilecrm/php-api/blob/master/testAgile.php).
+For example implementation of all available API refer to [testagile.php](https://github.com/agilecrm/php-api/blob/master/testagile.php).
