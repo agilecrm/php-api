@@ -116,6 +116,8 @@ curlWrap("score", $json, "GET");
 ###### 3.3 To subtract the score of contact 
 
 ```php
+$json = '{"email" : "contact@test.com"}';
+
 curlWrap("contact", $json, "DELETE");
 ```
 
