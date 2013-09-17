@@ -118,7 +118,7 @@ curlWrap("score", $json, "GET");
 ###### 3.3 To subtract the score of contact 
 
 ```php
-$subscore_json = '{"score":"20", "email":"contact@test.com"}';
+$subscore_json = '{"score" : "20", "email" : "contact@test.com"}';
 
 curlWrap("contact", $json, "PUT");
 ```
