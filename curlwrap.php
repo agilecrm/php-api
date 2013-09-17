@@ -8,37 +8,39 @@ function curlWrap ($url, $json, $action)
 	curl_setopt_array($ch, array(
 	CURLOPT_FOLLOWLOCATION=>true,
 	CURLOPT_MAXREDIRS=>10,
-	CURLOPT_URL=>'https://'.domain.'.agilecrm.com/core/php/api/'.$url.'?id='.apikey
 	));
 	switch($action)
 	{
 		case "POST":
+			curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$url.'?id='.apikey);
 			curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"POST");
 			curl_setopt($ch,CURLOPT_POSTFIELDS,$json);
 			break;
 		case "GET":
+			$json = json_decode($json);
 			curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"GET");
-			curl_setopt($ch,CURLOPT_POSTFIELDS,$json);
+			curl_setopt($ch,CURLOPT_URL,'https://'.domain.'agilecrm.com/core/php/api/'.$url.'?id='.apikey.'&email='.$json->{'email'});
 			break;
 		case "PUT":
+			curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$url.'?id='.apikey);
 			curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"PUT");
 			curl_setopt($ch,CURLOPT_POSTFIELDS,$json);
 			break;
 		case "DELETE":
+			$json = json_decode($json);
+			curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$url.'?id='.apikey.'&email='.$json->{'email'});
 			curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"DELETE");
-			curl_setopt($ch,CURLOPT_POSTFIELDS,$json);
 			break;
 		default:
 			break;
 	}
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application / json'));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 	curl_setopt_array($ch, array(
 	CURLOPT_RETURNTRANSFER=>true,
 	CURLOPT_TIMEOUT=>120
 	));
 	$output= curl_exec($ch);
 	curl_close($ch);
-	#return $output;
-	echo $output;
+	return $output;
 }
 ?>

@@ -12,44 +12,46 @@ define("domain","your_agile_subdomain");    # Example : define("domain","jim");
 * @param String $action		The HTTP method to use
 * @return String
 */
-function curlWrap($url, $json, $action)
+function curlWrap ($url, $json, $action)
 {
 	$ch = curl_init();
 	curl_setopt_array($ch, array(
 	CURLOPT_FOLLOWLOCATION=>true,
 	CURLOPT_MAXREDIRS=>10,
-	CURLOPT_URL=>'https://'.domain.'.agilecrm.com/core/php/api/'.$url.'?id='.apikey
 	));
 	switch($action)
 	{
 		case "POST":
+			curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$url.'?id='.apikey);
 			curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"POST");
 			curl_setopt($ch,CURLOPT_POSTFIELDS,$json);
 			break;
 		case "GET":
+			$json = json_decode($json);
 			curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"GET");
-			curl_setopt($ch,CURLOPT_POSTFIELDS,$json);
+			curl_setopt($ch,CURLOPT_URL,'https://'.domain.'agilecrm.com/core/php/api/'.$url.'?id='.apikey.'&email='.$json->{'email'});
 			break;
 		case "PUT":
+			curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$url.'?id='.apikey);
 			curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"PUT");
 			curl_setopt($ch,CURLOPT_POSTFIELDS,$json);
 			break;
 		case "DELETE":
+			$json = json_decode($json);
+			curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$url.'?id='.apikey.'&email='.$json->{'email'});
 			curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"DELETE");
-			curl_setopt($ch,CURLOPT_POSTFIELDS,$json);
 			break;
 		default:
 			break;
 	}
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application / json'));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 	curl_setopt_array($ch, array(
 	CURLOPT_RETURNTRANSFER=>true,
 	CURLOPT_TIMEOUT=>120
 	));
 	$output= curl_exec($ch);
 	curl_close($ch);
-	#return $output;
-	echo $output;
+	return $output;
 }
 
 # contact email for below test case
@@ -78,7 +80,7 @@ curlWrap("score", $score_json, "POST");
 
 # To subtract score
 $subscore_json = '{"score":"20", "email":"contact@test.com"}';
-curlWrap("score", $subscore_json, "DELETE");
+curlWrap("score", $subscore_json, "PUT");
 
 # To get current score of contact
 curlWrap("score", $json, "GET");
@@ -104,7 +106,7 @@ curlWrap("tags", $tag_json, "POST");
 		   
 # To delete tags
 $rm_tags_json = '{"tags":"tag3, tag4", "email":"contact@test.com"}';
-curlWrap("tags", $rm_tags_json, "DELETE");
+curlWrap("tags", $rm_tags_json, "PUT");
 
 # To get tags assigned to a contact
 curlWrap("tags", $json, "GET");

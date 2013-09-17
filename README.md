@@ -36,11 +36,13 @@ PHP Client to Access Agile Functionality
 ```
   c. **Action parameter** must to set to
 
-	POST if you need to create or add an entity like contact, tags, score, task etc.
+	POST if you need to add an entity to contact, like tags, or contact itself.
 
-	GET if you need to fetch an entity already associated with the contact.
+	GET if you need to fetch an entity associated with the contact.
+	
+	PUT to subtract score, or remove tags.
 
-	DELETE if you need to remove an entity associated with contact or contact itself
+	DELETE to delete a contact.
 
 # Usage
 
@@ -116,9 +118,9 @@ curlWrap("score", $json, "GET");
 ###### 3.3 To subtract the score of contact 
 
 ```php
-$json = '{"email" : "contact@test.com"}';
+$subscore_json = '{"score":"20", "email":"contact@test.com"}';
 
-curlWrap("contact", $json, "DELETE");
+curlWrap("contact", $json, "PUT");
 ```
 
 For example implementation of all available API refer to [testagile.php](https://github.com/agilecrm/php-api/blob/master/testagile.php).
