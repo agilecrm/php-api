@@ -9,22 +9,14 @@ PHP Client to Access Agile Functionality
 
 2. Copy and paste the source of curlwrap.php in your php code.
 
-3. You need to provide 3 parameters to the curlWrap function. They are **url**, **json data** and **action**.
+3. You need to provide 3 parameters to the curlWrap function. They are **subject**, **json data** and **action**.
 
-  a. **URL** corresponding to the entity, on which action needs to be performed is listed.
-
-		Entity 			Corresponding url
-	
-		Contact	 	  	contact
-		Tags			tags
-		Score		  	score
-		Note		  	note
-		Task		  	task
-		Deal			deal
+  a. **SUBJECT** should be one of - "contact", "tags", "score", "note", "task", "deal".
 
   b. **JSON data**
 
-	Contact email is a compulsory key in the json data for all the API functions. Example :
+	JSON data format should be as shown below.
+	
 	
 ```php
  $contact_json =  {
@@ -34,6 +26,9 @@ PHP Client to Access Agile Functionality
     				"tags" : "tag1, tag2"
     			  }
 ```
+
+	Email is mandatory
+	
   c. **Action parameter** must to set to
 
 	POST if you need to add an entity to contact, like tags, or contact itself.
