@@ -29,7 +29,7 @@ break;
 case "GET":
 $json = json_decode($json);
 curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"GET");
-curl_setopt($ch,CURLOPT_URL,'https://'.domain.'agilecrm.com/core/php/api/'.$subject.'?id='.apikey.'&email='.$json->{'email'});
+curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$subject.'?id='.apikey.'&email='.$json->{'email'});
 break;
 case "PUT":
 curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$subject.'?id='.apikey);
