@@ -7,12 +7,12 @@ define("domain","your_agile_subdomain");    # Example : define("domain","jim");
 /**
 * Fuction to make an HTTP call using curl
 *
-* @param String $url		URL to call
+* @param String $subject	Entity to perform action on
 * @param String $json		JSON data to send on HTTP call
 * @param String $action		The HTTP method to use
 * @return String
 */
-function curlWrap ($url, $json, $action)
+function curlWrap ($subject, $json, $action)
 {
 	$ch = curl_init();
 	curl_setopt_array($ch, array(
@@ -22,23 +22,23 @@ function curlWrap ($url, $json, $action)
 switch($action)
 {
 case "POST":
-curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$url.'?id='.apikey);
+curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$subject.'?id='.apikey);
 curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"POST");
 curl_setopt($ch,CURLOPT_POSTFIELDS,$json);
 break;
 case "GET":
 $json = json_decode($json);
 curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"GET");
-curl_setopt($ch,CURLOPT_URL,'https://'.domain.'agilecrm.com/core/php/api/'.$url.'?id='.apikey.'&email='.$json->{'email'});
+curl_setopt($ch,CURLOPT_URL,'https://'.domain.'agilecrm.com/core/php/api/'.$subject.'?id='.apikey.'&email='.$json->{'email'});
 break;
 case "PUT":
-curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$url.'?id='.apikey);
+curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$subject.'?id='.apikey);
 curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"PUT");
 curl_setopt($ch,CURLOPT_POSTFIELDS,$json);
 break;
 case "DELETE":
 $json = json_decode($json);
-curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$url.'?id='.apikey.'&email='.$json->{'email'});
+curl_setopt($ch,CURLOPT_URL,'https://'.domain.'.agilecrm.com/core/php/api/'.$subject.'?id='.apikey.'&email='.$json->{'email'});
 curl_setopt($ch,CURLOPT_CUSTOMREQUEST,"DELETE");
 break;
 default:
