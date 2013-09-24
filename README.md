@@ -9,14 +9,13 @@ PHP Client to Access Agile Functionality
 
 2. Copy and paste the source of curlwrap.php in your php code.
 
-3. You need to provide 3 parameters to the curlWrap function. They are **subject**, **json data** and **action**.
+3. You need to provide 3 parameters to the curlWrap function. They are **subject**, **JSON data** and **action**.
 
-  a. **SUBJECT** should be one of - "contact", "tags", "score", "note", "task", "deal".
+  a. **subject** should be one of "contact", "tags", "score", "note", "task", "deal".
 
   b. **JSON data**
 
-	JSON data format should be as shown below.
-	
+	JSON data format should be as shown below. Email is mandatory.
 	
 ```php
  $contact_json =  {
@@ -26,16 +25,14 @@ PHP Client to Access Agile Functionality
     				"tags" : "tag1, tag2"
     			  }
 ```
-
-	Email is mandatory
 	
-  c. **Action parameter** must to set to
+  c. **action parameter** must to set to
 
 	POST if you need to add an entity to contact, like tags, or contact itself.
 
 	GET if you need to fetch an entity associated with the contact.
 	
-	PUT to subtract score, or remove tags.
+	PUT to update contact properties, subtract score, or remove tags.
 
 	DELETE to delete a contact.
 
@@ -68,6 +65,17 @@ curlWrap("contact", $json, "GET");
 $json = '{"email" : "contact@test.com"}';
 
 curlWrap("contact", $json, "DELETE");
+```
+###### 1.4 To update a contact
+
+```php
+$contact_json  =	'{
+    					"email" : "contact@test.com",
+    					"website" : "http://www.example.com",
+    					"company" : "abc corp"
+			 		}';
+
+curlWrap("contact", $contact_json, "PUT");
 ```
 
 #### 2. Note
