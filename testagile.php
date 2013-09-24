@@ -58,6 +58,10 @@ break;
 $contact_json = '{"email":"contact@test.com", "first_name":"test", "last_name":"contact", "tags":"tag1, tag2"}';
 curlWrap("contact", $contact_json, "POST");
 
+# To update contact
+$contact_json = '{"email":"contact@test.com", "website":"http://example.com", "company":"ABC Corp"}';
+curlWrap("contact", $contact_json, "PUT");
+
 # To delete contact
 $json = '{"email":"contact@test.com"}';
 curlWrap("contact", $json, "DELETE");
@@ -114,5 +118,4 @@ curlWrap("tags", $rm_tags_json, "PUT");
 # To get tags assigned to a contact
 $json = '{"email":"contact@test.com"}';
 curlWrap("tags", $json, "GET");
-
 ?>
