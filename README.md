@@ -28,11 +28,11 @@ PHP Client to Access Agile Functionality
 	
   c. **action parameter** must to set to
 
-	POST if you need to add an entity to contact, like tags, or contact itself.
+	POST if you need to add an entity to contact like tags, or contact itself.
 
 	GET if you need to fetch an entity associated with the contact.
 	
-	PUT to update contact properties, subtract score, or remove tags.
+	PUT to update contact properties, add / subtract score, or remove tags.
 
 	DELETE to delete a contact.
 
@@ -109,7 +109,7 @@ $score_json  =	'{
     				"score" : "50"
 		 		}';
 
-curlWrap("score", $score_json, "POST");
+curlWrap("score", $score_json, "PUT");
 ```
 ###### 3.2 To get the score related to particular contact
 
@@ -121,7 +121,7 @@ curlWrap("score", $json, "GET");
 ###### 3.3 To subtract the score of contact 
 
 ```php
-$subscore_json = '{"email" : "contact@test.com", "score" : "20"}';
+$subscore_json = '{"email" : "contact@test.com", "score" : "-20"}';
 
 curlWrap("score", $json, "PUT");
 ```
