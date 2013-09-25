@@ -80,10 +80,10 @@ curlWrap("note", $json, "GET");
 
 # To add score to contact
 $score_json = '{"email":"contact@test.com", "score":"50"}';
-curlWrap("score", $score_json, "POST");
+curlWrap("score", $score_json, "PUT");
 
 # To subtract score
-$subscore_json = '{"score":"20", "email":"contact@test.com"}';
+$subscore_json = '{"email":"contact@test.com", "score":"-20"}';
 curlWrap("score", $subscore_json, "PUT");
 
 # To get current score of contact
@@ -98,9 +98,10 @@ curlWrap("task", $task_json, "POST");
 $json = '{"email":"contact@test.com"}';
 curlWrap("task", $json, "GET");
 
-# To add a deal to contact here close date specified as epoch time
+# To add a deal to contact 
 $deal_json = '{"name":"Test Deal", "description":"testing deal", "expected_value":"100", "milestone":"won",
 	       "probability":"5", "close_date":"1376047332", "email":"contact@test.com"}';
+	       			 # close date in epoch time
 curlWrap("deal", $deal_json, "POST");
 
 # To get deals associated with contact
