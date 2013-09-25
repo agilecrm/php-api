@@ -18,12 +18,12 @@ PHP Client to Access Agile Functionality
 	JSON data format should be as shown below. Email is mandatory.
 	
 ```php
- $contact_json =  {
-    				"email" : "contact@test.com",
-    				"first_name" : "test",
-    				"last_name" : "contact",
-    				"tags" : "tag1, tag2"
-    			  }
+ $contact_json =  '{
+    					"email" : "contact@test.com",
+    					"first_name" : "test",
+    					"last_name" : "contact",
+    					"tags" : "tag1, tag2"
+    			  }';
 ```
 	
   c. **action parameter** must to set to
@@ -121,9 +121,84 @@ curlWrap("score", $json, "GET");
 ###### 3.3 To subtract the score of contact 
 
 ```php
-$subscore_json = '{"score" : "20", "email" : "contact@test.com"}';
+$subscore_json = '{"email" : "contact@test.com", "score" : "20"}';
 
-curlWrap("contact", $json, "PUT");
+curlWrap("score", $json, "PUT");
+```
+#### 4. Task
+
+###### 4.1 To add task to contact
+
+```php
+$task_json = '{		
+				"email":"contact@test.com",
+				"type":"MEETING",
+				"priority_type":"HIGH",
+				"subject":"test"
+			 }';
+				
+curlWrap("tags", $tag_json, "POST");
+```
+###### 4.2 To get tasks related to contact
+
+```php
+$json = '{"email" : "contact@test.com"}';
+
+curlWrap("task", $json, "GET");
+```
+#### 5. Deal
+
+###### 5.1 To add deal to contact
+
+```php
+$deal_json = '{		
+				"email":"contact@test.com",
+				"name":"Test Deal",
+				"description":"testing deal",
+				"expected_value":"100",
+				"milestone":"won",
+				"probability":"5",
+				"close_date":"1376047332"
+	       	 }';
+
+curlWrap("deal", $deal_json, "POST");
 ```
 
+###### 5.2 To get deals related to contact
+
+```php
+$json = '{"email":"contact@test.com"}';
+
+curlWrap("deal", $json, "GET");
+```
+
+#### 6. Tags
+
+###### 6.1 To add tags to contact
+
+```php
+$tag_json = '{			
+				"email":"contact@test.com",
+				"tags":"tag1, tag2, tag3, tag4, tag5"
+			}';
+				
+curlWrap("tags", $tag_json, "POST");
+```
+###### 6.2 To get tags related to contact
+
+```php
+$json = '{"email":"contact@test.com"}';
+
+curlWrap("tags", $json, "GET");
+```
+###### 6.3 To remove tags related to contact
+
+```php
+$rm_tags_json = '{		
+					"email":"contact@test.com",
+					"tags":"tag3, tag4"
+				}';
+				
+curlWrap("tags", $rm_tags_json, "PUT");
+```
 For example implementation of all available API refer to [testagile.php](https://github.com/agilecrm/php-api/blob/master/testagile.php).
