@@ -47,7 +47,12 @@ $contact_json  =	'{
     					"email" : "contact@test.com",
     					"first_name" : "test",
     					"last_name" : "contact",
-    					"tags" : "tag1, tag2"
+    					"tags" : "tag1, tag2",
+    					"company": "abc corp",
+    					"title": "lead",
+    					"phone": "+1-541-754-3010",
+    					"website": "http://www.example.com",
+	                                "address": "{\"city\":\"new delhi\", \"state\":\"delhi\",\"country\":\"india\"}"
 			 		}';
 
 curlWrap("contact", $contact_json, "POST");
