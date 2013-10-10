@@ -52,7 +52,7 @@ $contact_json  =	'{
     					"title": "lead",
     					"phone": "+1-541-754-3010",
     					"website": "http://www.example.com",
-	                                "address": "{\"city\":\"new delhi\", \"state\":\"delhi\",\"country\":\"india\"}"
+    					"address": "{\"city\":\"new delhi\", \"state\":\"delhi\",\"country\":\"india\"}"
 			 		}';
 
 curlWrap("contact", $contact_json, "POST");
