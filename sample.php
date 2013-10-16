@@ -12,7 +12,7 @@ define("domain","your_agile_subdomain");    # Example : define("domain","jim");
 * @param String $action		The HTTP method to use
 * @return String
 */
-function curlWrap ($subject, $json, $action)
+function curl_wrap ($subject, $json, $action)
 {
 	$ch = curl_init();
 	curl_setopt_array($ch, array(
@@ -55,68 +55,84 @@ break;
 }
 
 # To add contact
-$contact_json = '{"email":"contact@test.com", "first_name":"test", "last_name":"contact", "tags":"tag1, tag2"}';
-curlWrap("contact", $contact_json, "POST");
+$contact_json = array("email"=>"contact@test.com", "first_name"=>"test", "last_name"=>"contact", "tags"=>"tag1, tag2");
+$contact_json = json_encode($contact_json);
+curl_wrap("contact", $contact_json, "POST");
 
 # To update contact
-$contact_json = '{"email":"contact@test.com", "website":"http://example.com", "company":"ABC Corp"}';
-curlWrap("contact", $contact_json, "PUT");
+$contact_json = array("email"=>"contact@test.com", "website"=>"http://example.com", "company"=>"ABC Corp");
+$contact_json = json_encode($contact_json);
+curl_wrap("contact", $contact_json, "PUT");
 
 # To delete contact
-$json = '{"email":"contact@test.com"}';
-curlWrap("contact", $json, "DELETE");
+$json = array("email"=>"contact@test.com");
+$json = json_encode($json);
+curl_wrap("contact", $json, "DELETE");
 
 # To get contact details
-$json = '{"email":"contact@test.com"}';
-curlWrap("contact", $json, "GET");
+$json = array("email"=>"contact@test.com");
+$json = json_encode($json);
+curl_wrap("contact", $json, "GET");
 
 # To add note
-$note_json = '{"email":"contact@test.com", "subject":"test", "description":"note"}';
-curlWrap("note", $note_json, "POST");
+$note_json = array("email"=>"contact@test.com", "subject"=>"test", "description"=>"note");
+$note_json = json_encode($note_json);
+curl_wrap("note", $note_json, "POST");
 
 # To get notes related to contact
-$json = '{"email":"contact@test.com"}';
-curlWrap("note", $json, "GET");
+$json = array("email"=>"contact@test.com");
+$json = json_encode($json);
+curl_wrap("note", $json, "GET");
 
 # To add score to contact
-$score_json = '{"email":"contact@test.com", "score":"50"}';
-curlWrap("score", $score_json, "PUT");
+$score_json = array("email"=>"contact@test.com", "score"=>"50");
+$score_json = json_encode($score_json);
+curl_wrap("score", $score_json, "PUT");
 
 # To subtract score
-$subscore_json = '{"email":"contact@test.com", "score":"-20"}';
-curlWrap("score", $subscore_json, "PUT");
+$subscore_json = array("email"=>"contact@test.com", "score"=>"-20");
+$subscore_json = json_encode($subscore_json);
+curl_wrap("score", $subscore_json, "PUT");
 
 # To get current score of contact
-$json = '{"email":"contact@test.com"}';
-curlWrap("score", $json, "GET");
+$json = array("email"=>"contact@test.com");
+$json = json_encode($json);
+curl_wrap("score", $json, "GET");
 
 # To add task
-$task_json = '{"type":"MEETING", "priority_type":"HIGH", "subject":"test", "email":"contact@test.com"}';
-curlWrap("task", $task_json, "POST");
+$task_json = array("type"=>"MEETING", "priority_type"=>"HIGH", "subject"=>"test", "email"=>"contact@test.com");
+$task_json = json_encode($task_json);
+curl_wrap("task", $task_json, "POST");
 
 # To get tasks related to a contact
-$json = '{"email":"contact@test.com"}';
-curlWrap("task", $json, "GET");
+$json = array("email"=>"contact@test.com");
+$json = json_encode($json);
+curl_wrap("task", $json, "GET");
 
 # To add a deal to contact 
-$deal_json = '{"name":"Test Deal", "description":"testing deal", "expected_value":"100", "milestone":"won",
-	       "probability":"5", "close_date":"1376047332", "email":"contact@test.com"}';
+$deal_json = array("name"=>"Test Deal", "description"=>"testing deal", "expected_value"=>"100", "milestone"=>"won",
+	       "probability"=>"5", "close_date"=>"1376047332", "email"=>"contact@test.com");
 	       			 # close date in epoch time
-curlWrap("deal", $deal_json, "POST");
+$deal_json = json_encode($deal_json);
+curl_wrap("deal", $deal_json, "POST");
 
 # To get deals associated with contact
-$json = '{"email":"contact@test.com"}';
-curlWrap("deal", $json, "GET");
+$json = array("email"=>"contact@test.com");
+$json = json_encode($json);
+curl_wrap("deal", $json, "GET");
 
 # To add tags
-$tag_json = '{"email":"contact@test.com", "tags":"tag1, tag2, tag3, tag4, tag5"}';
-curlWrap("tags", $tag_json, "POST");
+$tag_json = array("email"=>"contact@test.com", "tags"=>"tag1, tag2, tag3, tag4, tag5");
+$tag_json = json_encode($tag_json);
+curl_wrap("tags", $tag_json, "POST");
 		   
 # To delete tags
-$rm_tags_json = '{"tags":"tag3, tag4", "email":"contact@test.com"}';
-curlWrap("tags", $rm_tags_json, "PUT");
+$rm_tags_json = array("tags"=>"tag3, tag4", "email"=>"contact@test.com");
+$rm_tags_json = json_encode($rm_tags_json);
+curl_wrap("tags", $rm_tags_json, "PUT");
 
 # To get tags assigned to a contact
-$json = '{"email":"contact@test.com"}';
-curlWrap("tags", $json, "GET");
+$json = array("email"=>"contact@test.com");
+$json = json_encode($json);
+curl_wrap("tags", $json, "GET");
 ?>

@@ -2,7 +2,7 @@
 define("apikey", "your_agile_api_key");
 define("domain", "your_agile_subdomain");
 
-function curlWrap ($subject, $json, $action)
+function curl_wrap ($subject, $json, $action)
 {
 	$ch = curl_init();
 	curl_setopt_array($ch, array(
