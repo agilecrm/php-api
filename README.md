@@ -18,12 +18,12 @@ PHP Client to Access Agile Functionality
 	JSON data format should be as shown below. Email is mandatory.
 	
 ```php
- $contact_json =  array(
+ $contact_json = array(
     					"email" => "contact@test.com",
     					"first_name" => "test",
     					"last_name" => "contact",
     					"tags" => "tag1, tag2"
-    			  );
+					  );
     			  
  $contact_json = json_encode($contact_json);
 ```
@@ -46,9 +46,7 @@ PHP Client to Access Agile Functionality
 
 ```php
 $contact_json = array(
-
-
-    "email" => "contact@test.com",
+	"email" => "contact@test.com",
     "first_name" => "test",
     "last_name" => "contact",
     "tags" => "tag1, tag2",
@@ -57,7 +55,7 @@ $contact_json = array(
     "phone" => "+1-541-754-3010",
     "website" => "http://www.example.com",
     "address" => "{\"city\":\"new delhi\", \"state\":\"delhi\",\"country\":\"india\"}"
-);
+    );
 
 $contact_json = json_encode($contact_json);
 
@@ -84,11 +82,11 @@ curl_wrap("contact", $json, "DELETE");
 ###### 1.4 To update a contact
 
 ```php
-$contact_json  =	array(
+$contact_json =	array (
     					"email" => "contact@test.com",
     					"website" => "http://www.example.com",
     					"company" => "abc corp"
-			 		);
+					  );
 			 		
 $contact_json = json_encode($contact_json);
 
@@ -100,11 +98,11 @@ curl_wrap("contact", $contact_json, "PUT");
 ###### 2.1 To add Note
 
 ```php
-$note_json  =	array(
+$note_json = array(
 					"email" => "contact@test.com",
 					"subject" => "test",
 					"description" => "note added"
-		 		);
+		 		  );
 		 		
 $note_json = json_encode($note_json);
 
@@ -125,10 +123,10 @@ curl_wrap("note", $json, "GET");
 ###### 3.1 To add score to contact
 
 ```php
-$score_json  =	array(
+$score_json = array(
     				"email" => "contact@test.com",
     				"score" => "50"
-		 		);
+		 		   );
 		 		
 $score_json = json_encode($score_json);
 
@@ -158,11 +156,12 @@ curl_wrap("score", $json, "PUT");
 
 ```php
 $task_json = array(	
-				"email" => "contact@test.com",
-				"type" => "MEETING",
-				"priority_type" => "HIGH",
-				"subject" => "test"
-			 );
+					"email" => "contact@test.com",
+					"type" => "MEETING",
+					"priority_type" => "HIGH",
+					"subject" => "test",
+					"due" => "1376047332"
+				  );
 				
 $task_json = json_encode($task_json);
 				
@@ -183,14 +182,14 @@ curl_wrap("task", $json, "GET");
 
 ```php
 $deal_json = array(		
-				"email" => "contact@test.com",
-				"name" => "Test Deal",
-				"description" => "testing deal",
-				"expected_value" => "100",
-				"milestone" => "won",
-				"probability" => "5",
-				"close_date" => "1376047332"
-	       	 );
+					"email" => "contact@test.com",
+					"name" => "Test Deal",
+					"description" => "testing deal",
+					"expected_value" => "100",
+					"milestone" => "won",
+					"probability" => "5",
+					"close_date" => "1376047332"
+				  );
 	       	 
 $deal_json = json_encode($deal_json);
 
@@ -213,9 +212,9 @@ curl_wrap("deal", $json, "GET");
 
 ```php
 $tag_json = array(			
-				"email" => "contact@test.com",
-				"tags" => "tag1, tag2, tag3, tag4, tag5"
-			);
+					"email" => "contact@test.com",
+					"tags" => "tag1, tag2, tag3, tag4, tag5"
+				 );
 			
 $tag_json = json_encode($tag_json);
 							
@@ -234,9 +233,9 @@ curl_wrap("tags", $json, "GET");
 
 ```php
 $rm_tags_json = array(		
-					"email" => "contact@test.com",
-					"tags" => "tag3, tag4"
-				);
+						"email" => "contact@test.com",
+						"tags" => "tag3, tag4"
+					 );
 				
 $rm_tags_json = json_encode($rm_tags_json);
 				
