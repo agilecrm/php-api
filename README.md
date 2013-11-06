@@ -82,11 +82,24 @@ curl_wrap("contact", $json, "DELETE");
 ###### 1.4 To update a contact
 
 ```php
-$contact_json =	array (
+$contact_json =	array(
     					"email" => "contact@test.com",
     					"website" => "http://www.example.com",
     					"company" => "abc corp"
-					  );
+					 );
+			 		
+$contact_json = json_encode($contact_json);
+
+curl_wrap("contact", $contact_json, "PUT");
+```
+
+- 1.4.1 Adding custom property
+
+```php
+$contact_json =	array(
+    					"email" => "contact@test.com",
+    					"custom_property_name" => "custom_property_value"
+    				 );
 			 		
 $contact_json = json_encode($contact_json);
 
