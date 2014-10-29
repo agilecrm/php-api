@@ -393,4 +393,4 @@ curl_wrap("milestone/pipelines/5659711005261824", null, "DELETE");
 ----
 
 
-- The curlwrap.php is based on https://gist.github.com/apanzerj/2920899 authored by [Adam Panzer](https://github.com/apanzerj) for Zendesk.  
+- The curlwrap.php is based on https://gist.github.com/apanzerj/2920899 authored by [Adam Panzer](https://github.com/apanzerj).  
