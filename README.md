@@ -384,9 +384,13 @@ $milestone_json = json_encode($milestone_json);
 curl_wrap("milestone/pipelines", $milestone_json, "PUT");
 ```
 
-
 #### 7.4 To delete a track
 
 ```javascript
 curl_wrap("milestone/pipelines/5659711005261824", null, "DELETE");
 ```
+
+----
+
+
+- The curlwrap.php is based on https://gist.github.com/apanzerj/2920899 authored by [Adam Panzer](https://github.com/apanzerj) for Zendesk.  
