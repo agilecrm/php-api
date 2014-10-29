@@ -1,4 +1,4 @@
-#PHP API
+#PHP API v2.0.0
 PHP Client to access Agile functionality
 
 #Intro
