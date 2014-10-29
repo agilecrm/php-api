@@ -1,5 +1,5 @@
-php-api
-=======
+php-api v1.0.0
+==============
 
 PHP Client to Access Agile Functionality
 
