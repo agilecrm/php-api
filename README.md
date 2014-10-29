@@ -3,9 +3,9 @@ PHP Client to access Agile functionality
 
 #Intro
 
-1. Fill in your **AGILE_DOMAIN**, **AGILE_USER_EMAIL**, **AGILE_REST_API_KEY** in [**curlwrapper.php**](https://github.com/agilecrm/php-api/blob/master/curlwrapper.php).
+1. Fill in your **AGILE_DOMAIN**, **AGILE_USER_EMAIL**, **AGILE_REST_API_KEY** in [**curlwrap_v2.php**](https://github.com/agilecrm/php-api/blob/master/curlwrap_v2.php).
 
-2. Copy and paste the source / include the [**curlwrapper.php**](https://github.com/agilecrm/php-api/blob/master/curlwrapper.php) in your php code.
+2. Copy and paste the source / include the [**curlwrap_v2.php**](https://github.com/agilecrm/php-api/blob/master/curlwrap_v2.php) in your php code.
 
 3. You need to provide 3 paramaters to the curl_wrap function. They are **$entity**, **$data**, **$method**.
 
@@ -393,4 +393,4 @@ curl_wrap("milestone/pipelines/5659711005261824", null, "DELETE");
 ----
 
 
-- The curlwrap.php is based on https://gist.github.com/apanzerj/2920899 authored by [Adam Panzer](https://github.com/apanzerj).  
+- The curlwrap_v*.php is based on https://gist.github.com/apanzerj/2920899 authored by [Adam Panzer](https://github.com/apanzerj).

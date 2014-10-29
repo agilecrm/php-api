@@ -5,9 +5,9 @@ PHP Client to Access Agile Functionality
 
 # Intro
 
-1. Fill in the your ***agile API key*** and ***agile domain*** in the file **curlwrap.php**
+1. Fill in the your ***agile API key*** and ***agile domain*** in the file **curlwrap_v1.php**
 
-2. Copy and paste the source of curlwrap.php in your php code.
+2. Copy and paste the source of curlwrap_v1.php in your php code.
 
 3. You need to provide 3 parameters to the curl_wrap function. They are **subject**, **JSON data** and **action**.
 
@@ -194,7 +194,7 @@ curl_wrap("task", $json, "GET");
 ###### 5.1 To add deal to contact
 
 ```php
-$deal_json = array(		
+$deal_json = array(
 					"email" => "contact@test.com",
 					"name" => "Test Deal",
 					"description" => "testing deal",
@@ -224,7 +224,7 @@ curl_wrap("deal", $json, "GET");
 ###### 6.1 To add tags to contact
 
 ```php
-$tag_json = array(			
+$tag_json = array(
 					"email" => "contact@test.com",
 					"tags" => "tag1, tag2, tag3, tag4, tag5"
 				 );
@@ -245,7 +245,7 @@ curl_wrap("tags", $json, "GET");
 ###### 6.3 To remove tags related to contact
 
 ```php
-$rm_tags_json = array(		
+$rm_tags_json = array(
 						"email" => "contact@test.com",
 						"tags" => "tag3, tag4"
 					 );
