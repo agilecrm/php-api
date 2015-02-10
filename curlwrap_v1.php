@@ -34,7 +34,7 @@ function curl_wrap ($subject, $json, $action)
 		default:
 			break;
 	}
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json; charset : UTF-8;'));
 	curl_setopt_array($ch, array(
 	CURLOPT_RETURNTRANSFER=>true,
 	CURLOPT_TIMEOUT=>120
