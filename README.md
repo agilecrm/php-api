@@ -401,7 +401,6 @@ $tag_json = array(
 				 );
 
 $tag_json = json_encode($tag_json);
-
 curl_wrap("tags", $tag_json, "POST");
 ```
 #### 8.2 To get tags related to contact
@@ -410,7 +409,6 @@ curl_wrap("tags", $tag_json, "POST");
 $json = array("email" => "phprest@contact.com");
 
 $json = json_encode($json);
-
 curl_wrap("tags", $json, "GET");
 ```
 #### 8.3 To remove tags related to contact
@@ -422,7 +420,6 @@ $rm_tags_json = array(
 					 );
 
 $rm_tags_json = json_encode($rm_tags_json);
-
 curl_wrap("tags", $rm_tags_json, "PUT");
 ```
 
