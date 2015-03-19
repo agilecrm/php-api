@@ -390,6 +390,42 @@ curl_wrap("milestone/pipelines", $milestone_json, "PUT");
 curl_wrap("milestone/pipelines/5659711005261824", null, "DELETE");
 ```
 
+# 8. Tags
+
+#### 8.1 To add tags to contact
+
+```javascript
+$tag_json = array(
+					"email" => "phprest@contact.com",
+					"tags" => "tag1, tag2, tag3, tag4, tag5"
+				 );
+
+$tag_json = json_encode($tag_json);
+
+curl_wrap("tags", $tag_json, "POST");
+```
+#### 8.2 To get tags related to contact
+
+```javascript
+$json = array("email" => "phprest@contact.com");
+
+$json = json_encode($json);
+
+curl_wrap("tags", $json, "GET");
+```
+#### 8.3 To remove tags related to contact
+
+```javascript
+$rm_tags_json = array(
+						"email" => "phprest@contact.com",
+						"tags" => "tag3, tag4"
+					 );
+
+$rm_tags_json = json_encode($rm_tags_json);
+
+curl_wrap("tags", $rm_tags_json, "PUT");
+```
+
 ----
 
 
