@@ -5,7 +5,8 @@ define("AGILE_REST_API_KEY", "your_agile_api_key");
 
 function curl_wrap($entity, $data, $method)
 {
-    $agile_url = "https://" . AGILE_DOMAIN . ".agilecrm.com/dev/api/";
+    $agile_url     = "https://" . AGILE_DOMAIN . ".agilecrm.com/dev/api/" . $entity;
+    $agile_php_url = "https://" . AGILE_DOMAIN . ".agilecrm.com/core/php/api/" . $entity . "?id=" . AGILE_REST_API_KEY;
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -14,24 +15,24 @@ function curl_wrap($entity, $data, $method)
 
     switch ($method) {
         case "POST":
-            $url = ($entity == "tags" ? 'https://' . AGILE_DOMAIN . '.agilecrm.com/core/php/api/' . $entity . '?id=' . AGILE_REST_API_KEY : $agile_url . $entity);
+            $url = ($entity == "tags" ? $agile_php_url : $agile_url);
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             break;
         case "GET":
-            $url = ($entity == "tags" ? 'https://' . AGILE_DOMAIN . '.agilecrm.com/core/php/api/' . $entity . '?id=' . AGILE_REST_API_KEY . '&email=' . $data->{'email'} : $agile_url . $entity);
+            $url = ($entity == "tags" ? $agile_php_url . '&email=' . $data->{'email'} : $agile_url);
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
             break;
         case "PUT":
-            $url = ($entity == "tags" ? 'https://' . AGILE_DOMAIN . '.agilecrm.com/core/php/api/' . $entity . '?id=' . AGILE_REST_API_KEY : $agile_url . $entity);
+            $url = ($entity == "tags" ? $agile_php_url : $agile_url);
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             break;
         case "DELETE":
-            $url = ($entity == "tags" ? 'https://' . AGILE_DOMAIN . '.agilecrm.com/core/php/api/' . $entity . '?id=' . AGILE_REST_API_KEY : $agile_url . $entity);
+            $url = ($entity == "tags" ? $agile_php_url : $agile_url);
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
             break;
