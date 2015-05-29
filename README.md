@@ -9,7 +9,7 @@ PHP Client to access Agile functionality
 
 3. You need to provide 3 paramaters to the curl_wrap function. They are **$entity**, **$data**, **$method**.
 
-- **$entity** should be one of *"contacts/{id}", "contacts", "opportunity/{id}", "opportunity", "notes", "contacts/{contact_id}/notes", "contacts/{contact_id}/notes/{note_id}", "tasks/{id}", "tasks", "events", "events/{id}", "milestone/pipelines", "milestone/pipelines/{id}"* depending on requirement.
+- **$entity** should be one of *"contacts/{id}", "contacts", "opportunity/{id}", "opportunity", "notes", "contacts/{contact_id}/notes", "contacts/{contact_id}/notes/{note_id}", "tasks/{id}", "tasks", "events", "events/{id}", "milestone/pipelines", "milestone/pipelines/{id}", "tags", "contacts/search/email/{email}"* depending on requirement.
   
 - **$data** must be stringified JSON.
 
@@ -80,8 +80,15 @@ curl_wrap("contacts", $contact_json, "POST");
 
 #### 1.2 To fetch contact data
 
+###### by id
+
 ```javascript
 curl_wrap("contacts/5722721933590528", null, "GET");
+```
+###### by email
+
+```javascript
+curl_wrap("contacts/search/email/test@email.com", null, "GET");
 ```
 
 #### 1.3 To delete a contact
