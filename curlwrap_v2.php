@@ -41,7 +41,8 @@ function curl_wrap($entity, $data, $method)
     }
 
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        'Content-type : application/json; charset : UTF-8;'
+        'Content-type : application/json; charset : UTF-8;',
+        'Accept : application/json'
     ));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_USERPWD, AGILE_USER_EMAIL . ':' . AGILE_REST_API_KEY);

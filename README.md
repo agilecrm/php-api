@@ -195,6 +195,16 @@ $opportunity_json = array(
   "description"=>"this is a test deal",
   "expected_value"=>1000,
   "milestone"=>"Open",
+    "custom_data"=>array(
+    array(
+      "name"=>"dataone",
+      "value"=>"xyz"
+    ),
+    array(
+      "name"=>"datatwo",
+      "value"=>"abc"
+    )
+  ),
   "probability"=>50,
   "close_date"=>1414317504,
   "contact_ids"=>array(5722721933590528)
@@ -224,6 +234,16 @@ $opportunity_json = array(
   "description"=>"this is a test deal",
   "expected_value"=>1000,
   "milestone"=>"Open",
+  "custom_data"=>array(
+    array(
+      "name"=>"data1",
+      "value"=>"abc"
+    ),
+    array(
+      "name"=>"data2",
+      "value"=>"xyz"
+    )
+  ),
   "probability"=>50,
   "close_date"=>1414317504,
   "contact_ids"=>array(5722721933590528)
