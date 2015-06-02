@@ -48,7 +48,7 @@ $data = json_encode($data);
       DELETE to remove an entity.
 
 
-4. Response is stringified json, can use json_decode to convet to json as below example:
+4. Response is stringified json, can use json_decode to change to json as below example:
 
 ```javascript
 $result = curl_wrap("contacts/search/email/test@email.com", null, "GET");
