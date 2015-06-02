@@ -46,7 +46,15 @@ $data = json_encode($data);
       PUT to update entity.
       
       DELETE to remove an entity.
-      
+
+
+4. Response is stringified json, can use json_decode to convet to json as below example:
+
+```javascript
+$result = curl_wrap("contacts/search/email/test@email.com", null, "GET");
+$result = json_decode($result, true);
+$contact_id = $result['id'];
+```
 #Usage
 
 ## 1. Contact
