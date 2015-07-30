@@ -31,6 +31,10 @@ $data = array(
       "value"=>"phprest@contact.com",
       "type"=>"SYSTEM"
     )
+  ),
+  "tags"=>array(
+      "Buyer",
+      "Deal Closed"
   )
 );
 
