@@ -1,5 +1,16 @@
 <?php
 
+/**
+* NOTE NOTE NOTE!
+* 
+* This example file is no longer correct. It uses an old version of the API
+* 
+**/
+
+
+
+
+
 # Enter your agile api key and sub domain name
 define("apikey","your_agile_api_key");
 define("domain","your_agile_subdomain");    # Example : define("domain","jim");
