@@ -3,9 +3,9 @@ PHP Client to access Agile functionality
 
 #Intro
 
-1. Fill in your **AGILE_DOMAIN**, **AGILE_USER_EMAIL**, **AGILE_REST_API_KEY** in [**curlwrap_v2.php**](https://github.com/agilecrm/php-api/blob/master/curlwrap_v2.php).
+1. Fill in your **AGILE_DOMAIN**, **AGILE_USER_EMAIL**, **AGILE_REST_API_KEY** in [**PHP_API_v2.0.0.php**](https://github.com/agilecrm/php-api/blob/master/PHP_API_v2.0.0.php).
 
-2. Copy and paste the source / include the [**curlwrap_v2.php**](https://github.com/agilecrm/php-api/blob/master/curlwrap_v2.php) in your php code.
+2. Copy and paste the source / include the [**PHP_API_v2.0.0.php**](https://github.com/agilecrm/php-api/blob/master/PHP_API_v2.0.0.php) in your php code.(Note: Few source code like create contact, update contact, get contact etc. all redy there. )
 
 3. You need to provide 3 paramaters to the curl_wrap function. They are **$entity**, **$data**, **$method**.
 
