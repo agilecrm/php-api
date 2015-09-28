@@ -279,7 +279,7 @@ $note_json = array(
 );
 
 $note_json = json_encode($note_json);
-curl_wrap("notes", $note_json, POST);
+curl_wrap("notes", $note_json, "POST");
 ```
 
 #### 4.2 To get all notes *related to specific contact*
