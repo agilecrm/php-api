@@ -99,8 +99,8 @@ $new_contact_json = array(
     ),
 	array(
         "name"=>"image",
-        "value"=>"http://www.soccerticketsonline.com/wp-content/uploads/ronaldo9.jpg",  //This image value may be url or path of image
-        "type"=>"SYSTEM"
+        "value"=>"http://www.soccerticketsonline.com/wp-content/uploads/ronaldo9.jpg",  //This image value is url of image.
+        "type"=>"SYSTEM"					// As of now we are not supporting image from local system path
     ),
 	array(
         "name"=>"company",
