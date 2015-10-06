@@ -112,6 +112,8 @@ curl_wrap("contacts/5722721933590528", null, "DELETE");
 
 #### 1.4 To update a contact
 
+- **$Note** To update contact, send all related data of the same contact aslo, otherwise we will get lost of data after update contact successfully done.
+
 ```javascript
 $contact_json = array(
   "id"=>5722721933590528,
