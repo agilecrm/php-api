@@ -280,4 +280,31 @@ echo "<br><hr><br>";
 /*================================================= update deal end================================================*/
 echo "</ul>";
 echo "</body></html>";
+
+// To set contacts system and custom data
+function setContactField($name, $value,$result){
+$name = $name;
+$value = $value;
+$properties = $result->properties;
+foreach ($properties as $propertie) {
+    //echo "$propertie->name <br>";
+	if (strcasecmp($name, $propertie->name) == 0) {
+		echo "$propertie->value";
+		$propertie->value=$value;
+	}
+}
+}
+// To set deals custom data
+function setDealCustom($name, $value,$result){
+$name = $name;
+$value = $value;
+$custom_data = $result->custom_data;
+foreach ($custom_data as $custom_data1) {
+    //echo "$propertie->name <br>";
+	if (strcasecmp($name, $custom_data1->name) == 0) {
+		echo "$custom_data1->value";
+		$custom_data1->value=$value;
+	}
+}
+}
 ?>
