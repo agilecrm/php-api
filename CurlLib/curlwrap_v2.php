@@ -1,55 +1,64 @@
 <?php
-define("AGILE_DOMAIN", "your_agile_domain");
-define("AGILE_USER_EMAIL", "your_agile_user_email");
-define("AGILE_REST_API_KEY", "your_agile_api_key");
 
-function curl_wrap($entity, $data, $method)
-{
-    $agile_url     = "https://" . AGILE_DOMAIN . ".agilecrm.com/dev/api/" . $entity;
-    $agile_php_url = "https://" . AGILE_DOMAIN . ".agilecrm.com/core/php/api/" . $entity . "?id=" . AGILE_REST_API_KEY;
+/**
+ * Agile CRM \ Curl Wrap
+ * 
+ * The Curl Wrap is the entry point to all services and actions.
+ *
+ * @author    Agile CRM developers <Ghanshyam>
+ */
+
+
+# Enter your domain name , agile email and agile api key
+define("AGILE_DOMAIN", "ghanshyam");  # Example : define("domain","jim");
+define("AGILE_USER_EMAIL", "ghanshyam.raut@agilecrm.com");
+define("AGILE_REST_API_KEY", "123456"); // Example : http://snag.gy/AEq23.jpg
+
+function curl_wrap($entity, $data, $method, $content_type) {
+    if ($content_type == NULL) {
+        $content_type = "application/json";
+    }
+    
+    $agile_url = "https://" . AGILE_DOMAIN . ".agilecrm.com/dev/api/" . $entity;
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
     curl_setopt($ch, CURLOPT_UNRESTRICTED_AUTH, true);
-
     switch ($method) {
         case "POST":
-            $url = ($entity == "tags" ? $agile_php_url : $agile_url);
+            $url = $agile_url;
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             break;
         case "GET":
-            $url = ($entity == "tags" ? $agile_php_url . '&email=' . $data->{'email'} : $agile_url);
+            $url = $agile_url;
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
             break;
         case "PUT":
-            $url = ($entity == "tags" ? $agile_php_url : $agile_url);
+            $url = $agile_url;
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             break;
         case "DELETE":
-            $url = ($entity == "tags" ? $agile_php_url : $agile_url);
+            $url = $agile_url;
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
             break;
         default:
             break;
     }
-
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        'Content-type : application/json; charset : UTF-8;',
-        'Accept : application/json'
+        "Content-type : $content_type;", 'Accept : application/json'
     ));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_USERPWD, AGILE_USER_EMAIL . ':' . AGILE_REST_API_KEY);
     curl_setopt($ch, CURLOPT_TIMEOUT, 120);
-
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
     $output = curl_exec($ch);
     curl_close($ch);
     return $output;
 }
-?>
