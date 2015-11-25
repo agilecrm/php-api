@@ -10,9 +10,9 @@
 
 
 # Enter your domain name , agile email and agile api key
-define("AGILE_DOMAIN", "ghanshyam");  # Example : define("domain","jim");
-define("AGILE_USER_EMAIL", "ghanshyam.raut@agilecrm.com");
-define("AGILE_REST_API_KEY", "123456"); // Example : http://snag.gy/AEq23.jpg
+define("AGILE_DOMAIN", "YOUR_AGILE_DOMAIN");  # Example : define("domain","jim");
+define("AGILE_USER_EMAIL", "YOUR_AGILE_USER_EMAIL");
+define("AGILE_REST_API_KEY", "YOUR_AGILE_REST_API_KEY");
 
 function curl_wrap($entity, $data, $method, $content_type) {
     if ($content_type == NULL) {
