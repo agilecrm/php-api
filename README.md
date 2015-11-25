@@ -3,13 +3,13 @@ PHP Client to access Agile functionality
 
 #Intro
 
-1. Fill in your **AGILE_DOMAIN**, **AGILE_USER_EMAIL**, **AGILE_REST_API_KEY** in [**curlwrap_v2.php**](https://github.com/ghanraut/php-api/blob/master/CurlLib/curlwrap_v2.php).
+1. Fill in your **AGILE_DOMAIN**, **AGILE_USER_EMAIL**, **AGILE_REST_API_KEY** in [**curlwrap_v2.php**](https://github.com/agilecrm/php-api/blob/master/CurlLib/curlwrap_v2.php).
 
-2. Copy and paste the source / include the [**curlwrap_v2.php**](https://github.com/ghanraut/php-api/blob/master/CurlLib/curlwrap_v2.php) in your php code.
+2. Copy and paste the source / include the [**curlwrap_v2.php**](https://github.com/agilecrm/php-api/blob/master/CurlLib/curlwrap_v2.php) in your php code.
 
 3. You need to provide 4 paramaters to the curl_wrap function. They are **$entity**, **$data**, **$method**, **$content-type**.
 
-- **$entity** should be one of *"contacts/{id}", "contacts", "opportunity/{id}", "opportunity", "notes", "contacts/{contact_id}/notes", "contacts/{contact_id}/notes/{note_id}", "tasks/{id}", "tasks", "events", "events/{id}", "milestone/pipelines", "milestone/pipelines/{id}", "tags", "contacts/search/email/{email}"* depending on requirement.
+- **$entity** should be one of *"contacts/{id}", "contacts","contacts/edit-properties","contacts/edit/add-star","contacts/edit/lead-score", "opportunity/{id}", "opportunity", "notes", "contacts/{contact_id}/notes", "contacts/{contact_id}/notes/{note_id}", "tasks/{id}", "tasks", "events", "events/{id}", "milestone/pipelines", "milestone/pipelines/{id}", "tags", "contacts/search/email/{email}"* depending on requirement.
   
 - **$data** must be stringified JSON.
 
@@ -55,7 +55,7 @@ $data = json_encode($data);
 	
 	application/json.
 
-	application/x-www-form-urlencoded (To valid form type data)
+	application/x-www-form-urlencoded
 
 #Usage
 
@@ -188,14 +188,14 @@ $contact_json = json_encode($contact_json);
 curl_wrap("contacts", $contact_json, "PUT", "application/json");
 ```
 
-#### 1.5 Update properties of a contact (Partial update)
+#### 1.5 Update properties of a contact (partial update)
 
-- **Note** Send only requierd properties data to update contact. No need to send all data of a contact.
+- **Note** Send only required properties data to update contact. No need to send all data of a contact.
 
 ```javascript
 
 $contact_json = array(
-  "id"=>5722721933590528, //It is mandatory filed. Id of contact
+  "id"=>"5722721933590528", //It is mandatory filed. Id of contact
   "properties"=>array(
     array(
       "name"=>"first_name",
@@ -224,12 +224,12 @@ $contact_json = json_encode($contact_json);
 curl_wrap("contacts/edit-properties", $contact_json, "PUT", "application/json");
 ```
 
-#### 1.6 Edit star value 
+#### 1.6 Update star value 
 
 ```javascript
 
 $contact_json = array(
-  "id"=>5722721933590528, //It is mandatory filed. Id of contact
+  "id"=>"5722721933590528", //It is mandatory filed. Id of contact
    "star_value"=>"5"
 );
 
@@ -237,20 +237,17 @@ $contact_json = json_encode($contact_json);
 curl_wrap("contacts/add-star", $contact_json, "PUT", "application/json");
 ```
 
-#### 1.7 Add Score to a Contact using Email-ID 
+#### 1.7 Update lead score 
 
 ```javascript
 
-$fields = array(
-            'email' => urlencode("haka@gmail.com"),
-            'score' => urlencode("30")
-        );
-        $fields_string = '';
-        foreach ($fields as $key => $value) {
-            $fields_string .= $key . '=' . $value . '&';
-        }
+$contact_json = array(
+   "id" => "5722721933590528", //It is mandatory filed. Id of contact
+   "lead_score" => "5"
+);
 
-curl_wrap("contacts/add-score", rtrim($fields_string, '&'), "POST", "application/x-www-form-urlencoded");
+$contact_json = json_encode($contact_json);
+curl_wrap("contacts/edit/lead-score", $contact_json, "PUT", "application/json");
 ```
 
 #### 1.8 Adding Tags to a contact based on Email 
@@ -325,7 +322,7 @@ curl_wrap("contacts/5695414665740288", null, "DELETE", "application/json")
 
 ```javascript
 $company_json = array(
-  "id"=>5695414665740288,
+  "id"=>"5695414665740288",
   "type"=>"COMPANY",
   "properties"=>array(
   array(
@@ -343,6 +340,44 @@ $company_json = array(
 
 $company_json = json_encode($company_json);
 curl_wrap("contacts", $company_json, "PUT", "application/json");
+```
+
+#### 2.5 Update properties of a company (partial update)
+
+- **Note** Send only required properties data to update company. No need to send all data of a company.
+
+```javascript
+$company_json = array(
+  "id"=>"5695414665740288", //It is mandatory filed. Id of company
+  "properties"=>array(
+  array(
+    "name"=>"name",
+    "value"=>"test company",
+    "type"=>"SYSTEM"
+  ),
+  array(
+    "name"=>"url",
+    "value"=>"https://www.test-company.org",
+    "type"=>"SYSTEM"
+    )
+  )
+);
+
+$company_json = json_encode($company_json);
+curl_wrap("contacts/edit-properties", $company_json, "PUT", "application/json");
+```
+
+#### 2.6 Update star value of a company
+
+```javascript
+
+$contact_json = array(
+  "id"=>5722721933590528, //It is mandatory filed. Id of a company
+   "star_value"=>"5"
+);
+
+$contact_json = json_encode($contact_json);
+curl_wrap("contacts/add-star", $contact_json, "PUT", "application/json");
 ```
 
 # 3. Deal (Opportunity)
@@ -369,7 +404,7 @@ $opportunity_json = array(
   ),
   "probability"=>50,
   "close_date"=>1414317504,
-  "contact_ids"=>array(5722721933590528)
+  "contact_ids"=>array("5641841626054656", "5756422495141888")
 );
 
 $opportunity_json = json_encode($opportunity_json);
@@ -417,34 +452,7 @@ $opportunity_json = json_encode($opportunity_json);
 curl_wrap("opportunity", $opportunity_json, "PUT", "application/json");
 ```
 
-#### 3.5 To update deal (Partial update)
-
-```javascript
-$opportunity_json = array(
-    "id" => "5202889022636032", //It is mandatory filed. Id of deal
-    "expected_value" => 1000,
-    "milestone" => "Open",
-    "pipeline_id" => "5502889022636568",
-    "custom_data" => array(
-        array(
-            "name" => "dataone",
-            "value" => "xyz"
-        ),
-        array(
-            "name" => "datatwo",
-            "value" => "abc"
-        )
-    ),
-    "probability" => 50,
-    "close_date" => 1414317504,
-    "contact_ids" => array("5641841626054656", "5756422495141888")
-);
-
-$opportunity_json = json_encode($opportunity_json);
-curl_wrap("opportunity/partial-update", $opportunity_json, "PUT", "application/json");
-```
-
-#### 3.6 Get deals related to specific contact by contact id
+#### 3.5 Get deals related to specific contact by contact id
 
 ```javascript
 curl_wrap("contacts/5739083074633728/deals", null, "GET", "application/json");
