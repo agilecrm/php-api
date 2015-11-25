@@ -148,12 +148,12 @@ echo $contact6;
 // **************************Edit star value contact id ********************************
 
 $contact_json_star = array(
-    "id" => 5722721933590528, //It is mandatory filed. Id of contact
+    "id" => "5722721933590528", //It is mandatory filed. Id of contact
     "star_value" => "5"
 );
 
 $contact_json_star_input = json_encode($contact_json_star);
-$contac7 = curl_wrap("contacts/edit/add-star", $contact_json_star_input, "PUT", "application/json");
+$contact7 = curl_wrap("contacts/edit/add-star", $contact_json_star_input, "PUT", "application/json");
 
 echo $contact7;
 
@@ -165,7 +165,7 @@ $contact_json_lead_score = array(
 );
 
 $contact_json_lead_score_input = json_encode($contact_json_lead_score);
-$contac8 = curl_wrap("contacts/edit/lead-score", $contact_json_lead_score_input, "PUT", "application/json");
+$contact8 = curl_wrap("contacts/edit/lead-score", $contact_json_lead_score_input, "PUT", "application/json");
 
 echo $contact8;
 
@@ -195,7 +195,7 @@ foreach ($form_fields2 as $key => $value) {
     $fields_string2 .= $key . '=' . $value . '&';
 }
 
-$tags2 = curl_wrap("contacts/email/tags/delete", rtrim($fields_string1, '&'), "POST", "application/x-www-form-urlencoded");
+$tags2 = curl_wrap("contacts/email/tags/delete", rtrim($fields_string2, '&'), "POST", "application/x-www-form-urlencoded");
 
 echo $tags2;
 
