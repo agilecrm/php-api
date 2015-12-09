@@ -96,7 +96,7 @@ echo $contact4;
 // Note : Otherwise you can lose other data, which is not sent. Better use partial update
 
 $contact_json_update = array(
-    "id" => "5722721933590528", //It is mandatory filed. Id of contact
+    "id" => "5722721933590528", //It is mandatory field. Id of contact
     "lead_score" => "80",
     "properties" => array(
         array(
@@ -126,7 +126,7 @@ echo $contact5;
 // Note : No need to send all the data of a contact only the properties want to update.
 
 $contact_json_partial_update = array(
-    "id" => "5722721933590528", //It is mandatory filed. Id of contact
+    "id" => "5722721933590528", //It is mandatory field. Id of contact
     "properties" => array(
         array(
             "name" => "first_name",
@@ -148,7 +148,7 @@ echo $contact6;
 // **************************Edit star value contact id ********************************
 
 $contact_json_star = array(
-    "id" => "5722721933590528", //It is mandatory filed. Id of contact
+    "id" => "5722721933590528", //It is mandatory field. Id of contact
     "star_value" => "5"
 );
 
@@ -160,7 +160,7 @@ echo $contact7;
 // **************************Edit score by contact id ****************
 
 $contact_json_lead_score = array(
-    "id" => 5722721933590528, //It is mandatory filed. Id of contact
+    "id" => 5722721933590528, //It is mandatory field. Id of contact
     "lead_score" => "5"
 );
 
@@ -202,7 +202,7 @@ echo $tags2;
 // **************************Update tags value by contact id ****************
 
 $contact_json_tags = array(
-    "id" => "5643140853661696", //It is mandatory filed. Id of contact
+    "id" => "5643140853661696", //It is mandatory field. Id of contact
    "tags" => array("Player", "Winner")
 );
 
