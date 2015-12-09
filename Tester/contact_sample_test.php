@@ -199,3 +199,17 @@ $tags2 = curl_wrap("contacts/email/tags/delete", rtrim($fields_string2, '&'), "P
 
 echo $tags2;
 
+// **************************Update tags value by contact id ****************
+
+$contact_json_tags = array(
+    "id" => "5643140853661696", //It is mandatory filed. Id of contact
+   "tags" => array("Player", "Winner")
+);
+
+
+$contact_json_tags_input = json_encode($contact_json_tags);
+
+$contac9 = curl_wrap("contacts/edit/tags", $contact_json_tags_input, "PUT", "application/json");
+
+echo '$contac9';
+
