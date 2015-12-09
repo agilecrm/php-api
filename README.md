@@ -161,7 +161,7 @@ curl_wrap("contacts/5722721933590528", null, "DELETE", "application/json");
 ```javascript
 
 $contact_json = array(
-  "id"=>"5722721933590528",//It is mandatory filed. Id of contact
+  "id"=>"5722721933590528",//It is mandatory field. Id of contact
   "lead_score"=>"80",
   "star_value"=>"5",
   "tags"=>array("Player","Winner"),
@@ -195,7 +195,7 @@ curl_wrap("contacts", $contact_json, "PUT", "application/json");
 ```javascript
 
 $contact_json = array(
-  "id"=>"5722721933590528", //It is mandatory filed. Id of contact
+  "id"=>"5722721933590528", //It is mandatory field. Id of contact
   "properties"=>array(
     array(
       "name"=>"first_name",
@@ -229,7 +229,7 @@ curl_wrap("contacts/edit-properties", $contact_json, "PUT", "application/json");
 ```javascript
 
 $contact_json = array(
-  "id"=>"5722721933590528", //It is mandatory filed. Id of contact
+  "id"=>"5722721933590528", //It is mandatory field. Id of contact
    "star_value"=>"5"
 );
 
@@ -242,7 +242,7 @@ curl_wrap("contacts/add-star", $contact_json, "PUT", "application/json");
 ```javascript
 
 $contact_json = array(
-   "id" => "5722721933590528", //It is mandatory filed. Id of contact
+   "id" => "5722721933590528", //It is mandatory field. Id of contact
    "lead_score" => "5"
 );
 
@@ -250,7 +250,20 @@ $contact_json = json_encode($contact_json);
 curl_wrap("contacts/edit/lead-score", $contact_json, "PUT", "application/json");
 ```
 
-#### 1.8 Adding Tags to a contact based on Email 
+#### 1.8 Update tags by contact id
+
+```javascript
+
+$contact_json = array(
+    "id" => "5643140853661696", //It is mandatory field. Id of contact
+   "tags" => array("Player", "Winner")
+);
+
+$contact_json = json_encode($contact_json);
+curl_wrap("contacts/edit/tags", $contact_json, "PUT", "application/json");
+```
+
+#### 1.9 Adding Tags to a contact based on Email 
 
 ```javascript
 
@@ -266,7 +279,7 @@ curl_wrap("contacts/edit/lead-score", $contact_json, "PUT", "application/json");
  curl_wrap("contacts/email/tags/add", rtrim($fields_string, '&'), "POST", "application/x-www-form-urlencoded");
 ```
 
-#### 1.9 Delete Tags to a contact based on Email 
+#### 1.10 Delete Tags to a contact based on Email 
 
 ```javascript
 
@@ -428,7 +441,7 @@ curl_wrap("opportunity/5739083074633728", null, "DELETE", "application/json");
 
 ```javascript
 $opportunity_json = array(
-    "id" => "5202889022636032", //It is mandatory filed. Id of deal
+    "id" => "5202889022636032", //It is mandatory field. Id of deal
     "description" => "this is a test deal",
     "expected_value" => 1000,
     "milestone" => "Open",
@@ -452,7 +465,32 @@ $opportunity_json = json_encode($opportunity_json);
 curl_wrap("opportunity", $opportunity_json, "PUT", "application/json");
 ```
 
-#### 3.5 Get deals related to specific contact by contact id
+#### 3.5 To update deal (Partial update)
+
+- **Note** No need to send all the data of a deal only the deal values want to update.
+
+```javascript
+$opportunity_json = array(
+    "id" => "5756188201320448", //It is mandatory field. Id of deal
+    "name" => "test deal",
+    "description" => "this is a test deal",
+    "expected_value" => 3000,
+    "milestone" => "Open",
+    "pipeline_id" => "5756422495141836",
+    "custom_data" => array(
+        array(
+            "name" => "dataone",
+            "value" => "xyz"
+        )
+    ),
+    "contact_ids" => array("5732642569846784", "5756422495141888")
+);
+
+$opportunity_json = json_encode($opportunity_json);
+curl_wrap("opportunity/partial-update", $opportunity_json, "PUT", "application/json");
+```
+
+#### 3.6 Get deals related to specific contact by contact id
 
 ```javascript
 curl_wrap("contacts/5739083074633728/deals", null, "GET", "application/json");
