@@ -452,7 +452,7 @@ $contact_json = json_encode($contact_json);
 curl_wrap("contacts/add-star", $contact_json, "PUT", "application/json");
 ```
 
-# 3. Deal (Opportunity)
+## 3. Deal (Opportunity)
 
 - **Note** Milestone name is case sensitive. It should be exactly as in your Agile CRM
 
@@ -555,7 +555,7 @@ curl_wrap("opportunity/partial-update", $opportunity_json, "PUT", "application/j
 curl_wrap("contacts/5739083074633728/deals", null, "GET", "application/json");
 ```
 
-# 4. Note
+## 4. Note
 
 #### 4.1 To create a note
 
@@ -593,7 +593,7 @@ curl_wrap("notes", $note_json, "PUT", "application/json");
 ```
 
 
-# 5. Task
+## 5. Task
 
 #### 5.1 To create a task
 
@@ -642,7 +642,7 @@ $task_json = json_encode($task_json);
 curl_wrap("tasks", $task_json, "PUT", "application/json");
 ``` 
 
-# 6. Event
+## 6. Event
 #### 6.1 To create a event
 
 ```javascript
@@ -680,7 +680,7 @@ $event_json = json_encode($event_json);
 curl_wrap("events", $event_json, "PUT", "application/json");
 ```
 
-# 7. Deal Tracks and Milestones
+## 7. Deal Tracks and Milestones
 
 #### 7.1 To create a track
 
