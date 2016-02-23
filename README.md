@@ -1,7 +1,66 @@
-#PHP API v3.0.0
-PHP Client to access Agile functionality
+Agile CRM PHP API 
+=================
 
-#Intro
+[Agile CRM] (https://www.agilecrm.com/) is a new breed CRM software with sales and marketing automation.
+
+Table of contents
+---------------
+
+**[Intro](#intro)**
+
+**[Usage](#usage)**
+
+**[1 Contact](#1-contact)**
+  * [1.1 To create a contact](#11-to-create-a-contact)
+  * [1.2 To fetch contact data](#12-to-fetch-contact-data)
+  * [1.3 To delete a contact](#13-to-delete-a-contact)
+  * [1.4 To update a contact](#14-to-update-a-contact)
+  * [1.5 Update properties of a contact (partial update)](#15-update-properties-of-a-contact-partial-update)best to use against update contact :+1:
+  * [1.6 Update star value](#16-update-star-value)
+  * [1.7 Update lead score](#17-update-lead-score)
+  * [1.8 Update tags by contact id](#18-update-tags-by-contact-id)
+  * [1.9 Adding Tags to a contact based on Email](#19-adding-tags-to-a-contact-based-on-email)
+  * [1.10 Delete Tags to a contact based on Email](#110-delete-tags-to-a-contact-based-on-email)
+
+**[2. Company](#2-company)**
+  * [2.1 To create a company](#21-to-create-a-company)
+  * [2.2 To get a company](#22-to-get-a-company)
+  * [2.3 To delete a company](#23-to-delete-a-company)
+  * [2.4 To update a company](#24-to-update-a-company)
+  * [2.5 Update properties of a company (partial update)](#25-update-properties-of-a-company-partial-update)best to use against update company :+1:
+  * [2.6 Update star value of a company](#26-update-star-value-of-a-company)
+
+**[3. Deal (Opportunity)](#3-deal-opportunity)**
+  * [3.1 To create a deal](#31-to-create-a-deal)
+  * [3.2 To get a deal](#32-to-get-a-deal)
+  * [3.3 To delete a deal](#33-to-delete-a-deal)
+  * [3.4 To update deal](#34-to-update-deal)
+  * [3.5 To update deal (Partial update)](#35-to-update-deal-partial-update)best to use against update deal :+1:
+  * [3.6 Get deals related to specific contact by contact id](#36-get-deals-related-to-specific-contact-by-contact-id)
+
+**[4. Note](#4-note)**
+  * [4.1 To create a note](#41-to-create-a-note)
+  * [4.2 To get all notes related to specific contact](#42-to-get-all-notes-related-to-specific-contact)
+  * [4.3 To update a note](#43-to-update-a-note)
+  
+**[5. Task](#5-task)**
+  * [5.1 To create a task](#51-to-create-a-task)
+  * [5.2 To get a task](#52-to-get-a-task)
+  * [5.3 To delete a task](#53-to-delete-a-task)
+  * [5.4 To update a task](#54-to-update-a-task)
+
+**[6. Event](#6-event)**
+  * [6.1 To create a event](#61-to-create-a-event)
+  * [6.2 To delete a event](#62-to-delete-a-event)
+  * [6.3 To update a event](#63-to-update-a-event)
+
+**[7. Deal Tracks and Milestones](#7-deal-tracks-and-milestones)**
+  * [7.1 To create a track](#71-to-create-a-track)
+  * [7.2 To get all tracks](#72-to-get-all-tracks)
+  * [7.3 To update track](#73-to-update-track)
+  * [7.4 To delete a track](#74-to-delete-a-track)
+
+##Intro
 
 1. Fill in your **AGILE_DOMAIN**, **AGILE_USER_EMAIL**, **AGILE_REST_API_KEY** in [**curlwrap_v2.php**](https://github.com/agilecrm/php-api/blob/master/CurlLib/curlwrap_v2.php).
 
@@ -57,7 +116,7 @@ $data = json_encode($data);
 
 	application/x-www-form-urlencoded
 
-#Usage
+##Usage
 
 
 Response is stringified json, can use json_decode to change to json as below example:
