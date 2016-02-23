@@ -8,6 +8,8 @@ Table of contents
 
 **[Intro](#intro)**
 
+**[Requirements](#requirements)**
+
 **[Usage](#usage)**
 
 **[1 Contact](#1-contact)**
@@ -115,6 +117,11 @@ $data = json_encode($data);
 	application/json.
 
 	application/x-www-form-urlencoded
+
+##Requirements
+
+- Two folder CurlLib and Tester
+- Can directly test Tester's any file after setting domain,email and api key of curlwrap_v2.php (CurlLib folder)
 
 ##Usage
 
