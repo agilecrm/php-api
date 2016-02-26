@@ -31,6 +31,8 @@ Table of contents
   * [2.4 To update a company](#24-to-update-a-company)
   * [2.5 Update properties of a company (partial update)](#25-update-properties-of-a-company-partial-update)best to use against update company :+1:
   * [2.6 Update star value of a company](#26-update-star-value-of-a-company)
+  * [2.7 Get list of companies](#27-get-list-of-companies)
+  * [2.8 Search Contacts/Companies](#28-search-contactscompanies)
 
 **[3. Deal (Opportunity)](#3-deal-opportunity)**
   * [3.1 To create a deal](#31-to-create-a-deal)
