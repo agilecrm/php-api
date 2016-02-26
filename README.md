@@ -459,6 +459,41 @@ $contact_json = json_encode($contact_json);
 curl_wrap("contacts/add-star", $contact_json, "PUT", "application/json");
 ```
 
+#### 2.7 Get list of companies
+
+- Paging can be applied using the page_size and cursor form parameters. Cursor for the next page will be in the last company of the list. If there is no cursor, it means that it is the end of list. 
+- Cursor value is optional.For paging cursor is required.
+
+```javascript
+
+form_fields = array(
+    'page_size' => urlencode("25"),
+    'global_sort_key' => urlencode("-created_time"),
+    'cursor' => urlencode("ClMKFgoMY3JlYXRlZF90aW1lEgYI-rbWrgUSNWoRc35hZ2lsZS1jcm0tY2xvdWRyFAsSB0NvbnRhY3QYgICAkNv0nQoMogEJZ2hhbnNoeWFtGAAgAQ")
+);
+$fields_string1 = '';
+foreach ($form_fields as $key => $value) {
+    $fields_string1 .= $key . '=' . $value . '&';
+}
+
+$companies = curl_wrap("contacts/companies/list", rtrim($fields_string1, '&'), "POST", "application/x-www-form-urlencoded");
+
+echo $companies;
+```
+
+#### 2.8 Search Contacts/Companies
+
+- 'q' - Search keyword (all contact/company default fields and searchable custom fields will be searched)
+- 'page_size' - Number of results to fetch
+- 'type' - Should be 'PERSON' for searching Contacts and 'COMPANY' for Companies
+
+```javascript
+
+$companies = curl_wrap("search?q=Google&page_size=10&type='COMPANY'", null, "GET", "application/json");
+
+echo $companies;
+```
+
 ## 3. Deal (Opportunity)
 
 - **Note** Milestone name is case sensitive. It should be exactly as in your Agile CRM
