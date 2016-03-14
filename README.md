@@ -16,28 +16,28 @@ Table of contents
   * [1.1 To create a contact](#11-to-create-a-contact)
   * [1.2 To fetch contact data](#12-to-fetch-contact-data)
   * [1.3 To delete a contact](#13-to-delete-a-contact)
-  * [1.4 Update properties of a contact (partial update)](#15-update-properties-of-a-contact-partial-update)
-  * [1.5 Update star value](#16-update-star-value)
-  * [1.6 Update lead score](#17-update-lead-score)
-  * [1.7 Update tags by contact id](#18-update-tags-by-contact-id)
-  * [1.8 Adding Tags to a contact based on Email](#19-adding-tags-to-a-contact-based-on-email)
-  * [1.9 Delete Tags to a contact based on Email](#110-delete-tags-to-a-contact-based-on-email)
+  * [1.4 Update properties of a contact (partial update)](#14-update-properties-of-a-contact-partial-update)
+  * [1.5 Update star value](#15-update-star-value)
+  * [1.6 Update lead score](#16-update-lead-score)
+  * [1.7 Update tags by contact id](#17-update-tags-by-contact-id)
+  * [1.8 Adding Tags to a contact based on Email](#18-adding-tags-to-a-contact-based-on-email)
+  * [1.9 Delete Tags to a contact based on Email](#19-delete-tags-to-a-contact-based-on-email)
 
 **[2. Company](#2-company)**
   * [2.1 To create a company](#21-to-create-a-company)
   * [2.2 To get a company](#22-to-get-a-company)
   * [2.3 To delete a company](#23-to-delete-a-company)
-  * [2.4 Update properties of a company (partial update)](#25-update-properties-of-a-company-partial-update)
-  * [2.5 Update star value of a company](#26-update-star-value-of-a-company)
-  * [2.6 Get list of companies](#27-get-list-of-companies)
-  * [2.7 Search Contacts/Companies](#28-search-contactscompanies)
+  * [2.4 Update properties of a company (partial update)](#24-update-properties-of-a-company-partial-update)
+  * [2.5 Update star value of a company](#25-update-star-value-of-a-company)
+  * [2.6 Get list of companies](#26-get-list-of-companies)
+  * [2.7 Search Contacts/Companies](#27-search-contactscompanies)
 
 **[3. Deal (Opportunity)](#3-deal-opportunity)**
   * [3.1 To create a deal](#31-to-create-a-deal)
   * [3.2 To get a deal](#32-to-get-a-deal)
   * [3.3 To delete a deal](#33-to-delete-a-deal)
-  * [3.4 To update deal (Partial update)](#35-to-update-deal-partial-update)
-  * [3.5 Get deals related to specific contact by contact id](#36-get-deals-related-to-specific-contact-by-contact-id)
+  * [3.4 To update deal (Partial update)](#34-to-update-deal-partial-update)
+  * [3.5 Get deals related to specific contact by contact id](#35-get-deals-related-to-specific-contact-by-contact-id)
 
 **[4. Note](#4-note)**
   * [4.1 To create a note](#41-to-create-a-note)
@@ -60,6 +60,11 @@ Table of contents
   * [7.2 To get all tracks](#72-to-get-all-tracks)
   * [7.3 To update track](#73-to-update-track)
   * [7.4 To delete a track](#74-to-delete-a-track)
+
+**[8. Users](#8-users)**
+  * [8.1 To create a event](#81-get-list-of-users)
+  * [8.2 To delete a event](#82-get-current-user)
+
 
 ##Intro
 
