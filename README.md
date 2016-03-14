@@ -16,31 +16,28 @@ Table of contents
   * [1.1 To create a contact](#11-to-create-a-contact)
   * [1.2 To fetch contact data](#12-to-fetch-contact-data)
   * [1.3 To delete a contact](#13-to-delete-a-contact)
-  * [1.4 To update a contact](#14-to-update-a-contact)
-  * [1.5 Update properties of a contact (partial update)](#15-update-properties-of-a-contact-partial-update)best to use against update contact :+1:
-  * [1.6 Update star value](#16-update-star-value)
-  * [1.7 Update lead score](#17-update-lead-score)
-  * [1.8 Update tags by contact id](#18-update-tags-by-contact-id)
-  * [1.9 Adding Tags to a contact based on Email](#19-adding-tags-to-a-contact-based-on-email)
-  * [1.10 Delete Tags to a contact based on Email](#110-delete-tags-to-a-contact-based-on-email)
+  * [1.4 Update properties of a contact (partial update)](#15-update-properties-of-a-contact-partial-update)
+  * [1.5 Update star value](#16-update-star-value)
+  * [1.6 Update lead score](#17-update-lead-score)
+  * [1.7 Update tags by contact id](#18-update-tags-by-contact-id)
+  * [1.8 Adding Tags to a contact based on Email](#19-adding-tags-to-a-contact-based-on-email)
+  * [1.9 Delete Tags to a contact based on Email](#110-delete-tags-to-a-contact-based-on-email)
 
 **[2. Company](#2-company)**
   * [2.1 To create a company](#21-to-create-a-company)
   * [2.2 To get a company](#22-to-get-a-company)
   * [2.3 To delete a company](#23-to-delete-a-company)
-  * [2.4 To update a company](#24-to-update-a-company)
-  * [2.5 Update properties of a company (partial update)](#25-update-properties-of-a-company-partial-update)best to use against update company :+1:
-  * [2.6 Update star value of a company](#26-update-star-value-of-a-company)
-  * [2.7 Get list of companies](#27-get-list-of-companies)
-  * [2.8 Search Contacts/Companies](#28-search-contactscompanies)
+  * [2.4 Update properties of a company (partial update)](#25-update-properties-of-a-company-partial-update)
+  * [2.5 Update star value of a company](#26-update-star-value-of-a-company)
+  * [2.6 Get list of companies](#27-get-list-of-companies)
+  * [2.7 Search Contacts/Companies](#28-search-contactscompanies)
 
 **[3. Deal (Opportunity)](#3-deal-opportunity)**
   * [3.1 To create a deal](#31-to-create-a-deal)
   * [3.2 To get a deal](#32-to-get-a-deal)
   * [3.3 To delete a deal](#33-to-delete-a-deal)
-  * [3.4 To update deal](#34-to-update-deal)
-  * [3.5 To update deal (Partial update)](#35-to-update-deal-partial-update)best to use against update deal :+1:
-  * [3.6 Get deals related to specific contact by contact id](#36-get-deals-related-to-specific-contact-by-contact-id)
+  * [3.4 To update deal (Partial update)](#35-to-update-deal-partial-update)
+  * [3.5 Get deals related to specific contact by contact id](#36-get-deals-related-to-specific-contact-by-contact-id)
 
 **[4. Note](#4-note)**
   * [4.1 To create a note](#41-to-create-a-note)
@@ -222,43 +219,7 @@ curl_wrap("contacts/search/email/test@email.com", null, "GET", "application/json
 curl_wrap("contacts/5722721933590528", null, "DELETE", "application/json");
 ```
 
-#### 1.4 To update a contact
-
-- **Note** Please send all data related to contact.
-
-```javascript
-
-$contact_json = array(
-  "id"=>"5722721933590528",//It is mandatory field. Id of contact
-  "lead_score"=>"80",
-  "star_value"=>"5",
-  "tags"=>array("Player","Winner"),
-  "properties"=>array(
-    array(
-      "name"=>"first_name",
-      "value"=>"php",
-      "type"=>"SYSTEM"
-    ),
-    array(
-      "name"=>"last_name",
-      "value"=>"contact",
-      "type"=>"SYSTEM"
-    ),
-    array(
-      "name"=>"email",
-      "value"=>"tester@agilecrm.com",
-      "type"=>"SYSTEM"
-    )
-  )
-);
-
-$contact_json = json_encode($contact_json);
-curl_wrap("contacts", $contact_json, "PUT", "application/json");
-```
-
-#### 1.5 Update properties of a contact (partial update)
-
-- **Note** Send only required properties data to update contact. No need to send all data of a contact.
+#### 1.4 Update properties of a contact (partial update)
 
 ```javascript
 
@@ -292,7 +253,7 @@ $contact_json = json_encode($contact_json);
 curl_wrap("contacts/edit-properties", $contact_json, "PUT", "application/json");
 ```
 
-#### 1.6 Update star value 
+#### 1.5 Update star value 
 
 ```javascript
 
@@ -305,7 +266,7 @@ $contact_json = json_encode($contact_json);
 curl_wrap("contacts/add-star", $contact_json, "PUT", "application/json");
 ```
 
-#### 1.7 Update lead score 
+#### 1.6 Update lead score 
 
 ```javascript
 
@@ -318,7 +279,7 @@ $contact_json = json_encode($contact_json);
 curl_wrap("contacts/edit/lead-score", $contact_json, "PUT", "application/json");
 ```
 
-#### 1.8 Update tags by contact id
+#### 1.7 Update tags by contact id
 
 ```javascript
 
@@ -331,7 +292,7 @@ $contact_json = json_encode($contact_json);
 curl_wrap("contacts/edit/tags", $contact_json, "PUT", "application/json");
 ```
 
-#### 1.9 Adding Tags to a contact based on Email 
+#### 1.8 Adding Tags to a contact based on Email 
 
 ```javascript
 
@@ -347,7 +308,7 @@ curl_wrap("contacts/edit/tags", $contact_json, "PUT", "application/json");
  curl_wrap("contacts/email/tags/add", rtrim($fields_string, '&'), "POST", "application/x-www-form-urlencoded");
 ```
 
-#### 1.10 Delete Tags to a contact based on Email 
+#### 1.9 Delete Tags to a contact based on Email 
 
 ```javascript
 
@@ -399,33 +360,8 @@ curl_wrap("contacts/5695414665740288", null, "GET", "application/json");
 ```javascript
 curl_wrap("contacts/5695414665740288", null, "DELETE", "application/json")
 ```
-#### 2.4 To update a company
 
-```javascript
-$company_json = array(
-  "id"=>"5695414665740288",
-  "type"=>"COMPANY",
-  "properties"=>array(
-  array(
-    "name"=>"name",
-    "value"=>"test company",
-    "type"=>"SYSTEM"
-  ),
-  array(
-    "name"=>"url",
-    "value"=>"https://www.test-company.org",
-    "type"=>"SYSTEM"
-    )
-  )
-);
-
-$company_json = json_encode($company_json);
-curl_wrap("contacts", $company_json, "PUT", "application/json");
-```
-
-#### 2.5 Update properties of a company (partial update)
-
-- **Note** Send only required properties data to update company. No need to send all data of a company.
+#### 2.4 Update properties of a company (partial update)
 
 ```javascript
 $company_json = array(
@@ -448,7 +384,7 @@ $company_json = json_encode($company_json);
 curl_wrap("contacts/edit-properties", $company_json, "PUT", "application/json");
 ```
 
-#### 2.6 Update star value of a company
+#### 2.5 Update star value of a company
 
 ```javascript
 
@@ -461,7 +397,7 @@ $contact_json = json_encode($contact_json);
 curl_wrap("contacts/add-star", $contact_json, "PUT", "application/json");
 ```
 
-#### 2.7 Get list of companies
+#### 2.6 Get list of companies
 
 - Paging can be applied using the page_size and cursor form parameters. Cursor for the next page will be in the last company of the list. If there is no cursor, it means that it is the end of list. 
 - Cursor value is optional.For paging cursor is required.
@@ -483,7 +419,7 @@ $companies = curl_wrap("contacts/companies/list", rtrim($fields_string1, '&'), "
 echo $companies;
 ```
 
-#### 2.8 Search Contacts/Companies
+#### 2.7 Search Contacts/Companies
 
 - 'q' - Search keyword (all contact/company default fields and searchable custom fields will be searched)
 - 'page_size' - Number of results to fetch
@@ -538,37 +474,7 @@ curl_wrap("opportunity/5739083074633728", null, "GET", "application/json");
 curl_wrap("opportunity/5739083074633728", null, "DELETE", "application/json");
 ```
 
-#### 3.4 To update deal
-
-- **Note** Please send all data related to deal.
-
-```javascript
-$opportunity_json = array(
-    "id" => "5202889022636032", //It is mandatory field. Id of deal
-    "description" => "this is a test deal",
-    "expected_value" => 1000,
-    "milestone" => "Open",
-    "pipeline_id" => "5502889022636568",
-    "custom_data" => array(
-        array(
-            "name" => "dataone",
-            "value" => "xyz"
-        ),
-        array(
-            "name" => "datatwo",
-            "value" => "abc"
-        )
-    ),
-    "probability" => 50,
-    "close_date" => 1414317504,
-    "contact_ids" => array("5641841626054656", "5756422495141888")
-);
-
-$opportunity_json = json_encode($opportunity_json);
-curl_wrap("opportunity", $opportunity_json, "PUT", "application/json");
-```
-
-#### 3.5 To update deal (Partial update)
+#### 3.4 To update deal (Partial update)
 
 - **Note** No need to send all the data of a deal only the deal values want to update.
 
@@ -593,7 +499,7 @@ $opportunity_json = json_encode($opportunity_json);
 curl_wrap("opportunity/partial-update", $opportunity_json, "PUT", "application/json");
 ```
 
-#### 3.6 Get deals related to specific contact by contact id
+#### 3.5 Get deals related to specific contact by contact id
 
 ```javascript
 curl_wrap("contacts/5739083074633728/deals", null, "GET", "application/json");
@@ -683,7 +589,7 @@ $task_json = array(
 );
 
 $task_json = json_encode($task_json);
-curl_wrap("tasks", $task_json, "PUT", "application/json");
+curl_wrap("tasks/partial-update", $task_json, "PUT", "application/json");
 ``` 
 
 ## 6. Event
@@ -763,6 +669,21 @@ curl_wrap("milestone/pipelines", $milestone_json, "PUT", "application/json");
 curl_wrap("milestone/pipelines/5659711005261824", null, "DELETE", "application/json");
 ```
 
+## 8. Users
+
+#### 8.1 Get list of users.
+
+```javascript
+$userList = curl_wrap("users", null, "GET", NULL);
+echo $userList;
+```
+
+#### 8.2 Get current user
+
+```javascript
+$currentUser = curl_wrap("users/current-user", null, "GET", NULL);
+echo $currentUser;
+```
 ----
 
 
