@@ -229,6 +229,9 @@ curl_wrap("contacts/5722721933590528", null, "DELETE", "application/json");
 
 #### 1.4 Update properties of a contact (partial update)
 
+- If updating custom field, make sure it should be present in the below link also
+- https://{domain}.agilecrm.com/#custom-fields
+
 ```javascript
 
 $contact_json = array(
@@ -371,6 +374,9 @@ curl_wrap("contacts/5695414665740288", null, "DELETE", "application/json")
 
 #### 2.4 Update properties of a company (partial update)
 
+- If updating custom field, make sure it should be present in the below link
+- https://{domain}.agilecrm.com/#custom-fields
+
 ```javascript
 $company_json = array(
   "id"=>"5695414665740288", //It is mandatory filed. Id of company
@@ -440,6 +446,15 @@ $companies = curl_wrap("search?q=Google&page_size=10&type='COMPANY'", null, "GET
 echo $companies;
 ```
 
+#### 2.8 Get Contacts of a company
+
+```javascript
+
+$contacts = curl_wrap("contacts/related/5712911708192768?page_size=25", null, "GET", "application/json");
+
+echo $contacts;
+```
+
 ## 3. Deal (Opportunity)
 
 - **Note** Milestone name is case sensitive. It should be exactly as in your Agile CRM
@@ -485,6 +500,8 @@ curl_wrap("opportunity/5739083074633728", null, "DELETE", "application/json");
 #### 3.4 To update deal (Partial update)
 
 - **Note** No need to send all the data of a deal only the deal values want to update.
+- If updating custom field, make sure it should be present in the below link also
+- https://{domain}.agilecrm.com/#custom-fields
 
 ```javascript
 $opportunity_json = array(
