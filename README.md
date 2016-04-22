@@ -31,7 +31,7 @@ Table of contents
   * [2.5 Update star value of a company](#25-update-star-value-of-a-company)
   * [2.6 Get list of companies](#26-get-list-of-companies)
   * [2.7 Search Contacts/Companies](#27-search-contactscompanies)
-  * [2.7 Get contacts of a company](#28-get-contacts-of-a-company)
+  * [2.8 Get contacts of a company](#28-get-contacts-of-a-company)
 
 **[3. Deal (Opportunity)](#3-deal-opportunity)**
   * [3.1 To create a deal](#31-to-create-a-deal)
