@@ -63,8 +63,8 @@ Table of contents
   * [7.4 To delete a track](#74-to-delete-a-track)
 
 **[8. Users](#8-users)**
-  * [8.1 To create a event](#81-get-list-of-users)
-  * [8.2 To delete a event](#82-get-current-user)
+  * [8.1 Get list of users](#81-get-list-of-users)
+  * [8.2 Get current user](#82-get-current-user)
 
 
 ##Intro
