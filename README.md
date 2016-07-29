@@ -147,6 +147,12 @@ print_r($contact_id);
 
 #### 1.1 To create a contact
 
+- [**About properties JSON**](https://github.com/agilecrm/rest-api/blob/master/README.md#properties-json)
+
+- [**Properties JSON Complete Example**](https://github.com/agilecrm/rest-api/blob/master/README.md#properties-json-complete-example)
+
+- [**Acceptable request representation for contact**](https://github.com/agilecrm/rest-api#acceptable-request-representation)
+
 ```javascript
 $address = array(
   "address"=>"Avenida Álvares Cabral 1777",
