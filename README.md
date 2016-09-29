@@ -281,7 +281,7 @@ $contact_json = array(
 );
 
 $contact_json = json_encode($contact_json);
-curl_wrap("contacts/add-star", $contact_json, "PUT", "application/json");
+curl_wrap("contacts/edit/add-star", $contact_json, "PUT", "application/json");
 ```
 
 #### 1.6 Update lead score 
