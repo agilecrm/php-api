@@ -67,7 +67,7 @@ Table of contents
   * [8.2 Get current user](#82-get-current-user)
 
 
-##Intro
+## Intro
 
 1. Fill in your **AGILE_DOMAIN**, **AGILE_USER_EMAIL**, **AGILE_REST_API_KEY** in [**curlwrap_v2.php**](https://github.com/agilecrm/php-api/blob/master/CurlLib/curlwrap_v2.php).
 
@@ -126,12 +126,12 @@ $data = json_encode($data);
 
 	application/x-www-form-urlencoded
 
-##Requirements
+## Requirements
 
 - Two folder CurlLib and Tester
 - Can directly test Tester's any file after setting domain,email and api key of curlwrap_v2.php (CurlLib folder)
 
-##Usage
+## Usage
 
 
 Response is stringified json, can use json_decode to change to json as below example:
