@@ -71,7 +71,7 @@ Table of contents
 
 1. Fill in your **AGILE_DOMAIN**, **AGILE_USER_EMAIL**, **AGILE_REST_API_KEY** in [**curlwrap_v2.php**](https://github.com/agilecrm/php-api/blob/master/CurlLib/curlwrap_v2.php).
 
-![Finding domain name, email and api key] (https://raw.githubusercontent.com/agilecrm/php-api/master/AgileCRMapi.png)
+![Finding domain name, email and api key](https://raw.githubusercontent.com/agilecrm/php-api/master/AgileCRMapi.png)
 
 
 2. Copy and paste the source / include the [**curlwrap_v2.php**](https://github.com/agilecrm/php-api/blob/master/CurlLib/curlwrap_v2.php) in your php code.
