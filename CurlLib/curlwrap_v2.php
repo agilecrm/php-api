@@ -52,7 +52,7 @@ function curl_wrap($entity, $data, $method, $content_type) {
             break;
     }
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        "Content-type : $content_type;", 'Accept : application/json'
+        "Content-Type:$content_type;", 'Accept:application/json'
     ));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_USERPWD, AGILE_USER_EMAIL . ':' . AGILE_REST_API_KEY);
